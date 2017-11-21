@@ -46,7 +46,7 @@ public class ConfigAccessor {
     public ConfigAccessor(JavaPlugin plugin, String fileName) {
         if (plugin == null)
             throw new IllegalArgumentException("plugin cannot be null");
-        if (!plugin.isInitialized())
+        if (!plugin.isEnabled())
             throw new IllegalArgumentException("plugin must be initiaized");
         this.plugin = plugin;
         this.fileName = fileName;
@@ -67,6 +67,7 @@ public class ConfigAccessor {
         InputStream defConfigStream = plugin.getResource(fileName);
     	plugin.getLogger().info("length is " + configFile.length());
 
+    	/*
         if (defConfigStream != null && configFile.length() < 1) {
         	plugin.getLogger().info("Generating config for " + fileName);
             defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
@@ -86,6 +87,7 @@ public class ConfigAccessor {
             plugin.getLogger().info("Saving " + fileName + "...");
             this.saveConfig();
         }
+        */
     	
     	
 
